@@ -24,8 +24,8 @@ Future<List<CountryEntity>> _fetchLocalizedCountryNames() async {
   for (var country in CountryEntity.ALL) {
     renamed.add(country.copyWith(name: result[country.isoCode]));
   }
-  renamed.sort(
-          (CountryEntity a, CountryEntity b) => removeDiacritics(a.name).compareTo(b.name));
+  renamed.sort((CountryEntity a, CountryEntity b) =>
+      removeDiacritics(a.name).compareTo(b.name));
 
   return renamed;
 }
@@ -68,8 +68,8 @@ class CountryPicker extends StatelessWidget {
     CountryEntity displayCountry = selectedCountry;
 
     if (displayCountry == null) {
-      displayCountry =
-          CountryEntity.findByIsoCode(Localizations.localeOf(context).countryCode);
+      displayCountry = CountryEntity.findByIsoCode(
+          Localizations.localeOf(context).countryCode);
     }
 
     return dense
@@ -77,7 +77,10 @@ class CountryPicker extends StatelessWidget {
         : _renderDefaultDisplay(context, displayCountry);
   }
 
-  _renderDefaultDisplay(BuildContext context, CountryEntity displayCountry) {
+  _renderDefaultDisplay(
+    BuildContext context,
+    CountryEntity displayCountry,
+  ) {
     return InkWell(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -97,7 +100,7 @@ class CountryPicker extends StatelessWidget {
               " ${displayCountry.name}",
               style: nameTextStyle,
             )),
-          if (showDialingCode)
+          if (showDialingCode && !showCurrency)
             Container(
                 child: Text(
               " (+${displayCountry.dialingCode})",
@@ -106,7 +109,7 @@ class CountryPicker extends StatelessWidget {
           if (showCurrency)
             Container(
                 child: Text(
-              " ${displayCountry.currency.symbol}",
+              "${displayCountry.currency.code} (${displayCountry.currency.symbol})",
               style: currencyTextStyle,
             )),
           if (showCurrencyISO)
@@ -122,12 +125,15 @@ class CountryPicker extends StatelessWidget {
         ],
       ),
       onTap: () {
-        _selectCountry(context, displayCountry);
+        _selectCountry(context, displayCountry, showCurrency);
       },
     );
   }
 
-  _renderDenseDisplay(BuildContext context, CountryEntity displayCountry) {
+  _renderDenseDisplay(
+    BuildContext context,
+    CountryEntity displayCountry,
+  ) {
     return InkWell(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -146,16 +152,20 @@ class CountryPicker extends StatelessWidget {
         ],
       ),
       onTap: () {
-        _selectCountry(context, displayCountry);
+        _selectCountry(context, displayCountry, showCurrency);
       },
     );
   }
 
   Future<Null> _selectCountry(
-      BuildContext context, CountryEntity defaultCountry) async {
+    BuildContext context,
+    CountryEntity defaultCountry,
+    bool showCurrency,
+  ) async {
     final CountryEntity picked = await showCountryPicker(
       context: context,
       defaultCountry: defaultCountry,
+      showCurrency: showCurrency,
     );
 
     if (picked != null && picked != selectedCountry) onChanged(picked);
@@ -167,6 +177,7 @@ class CountryPicker extends StatelessWidget {
 Future<CountryEntity> showCountryPicker({
   BuildContext context,
   CountryEntity defaultCountry,
+  bool showCurrency,
 }) async {
   assert(CountryEntity.findByIsoCode(defaultCountry.isoCode) != null);
 
@@ -174,14 +185,18 @@ Future<CountryEntity> showCountryPicker({
     context: context,
     builder: (BuildContext context) => _CountryPickerDialog(
       defaultCountry: defaultCountry,
+      showCurrency: showCurrency,
     ),
   );
 }
 
 class _CountryPickerDialog extends StatefulWidget {
+  final bool showCurrency;
+  final CountryEntity defaultCountry;
   const _CountryPickerDialog({
     Key key,
-    CountryEntity defaultCountry,
+    this.defaultCountry,
+    this.showCurrency,
   }) : super(key: key);
 
   @override
@@ -256,7 +271,10 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
                         country.isoCode.contains(filter)) {
                       return InkWell(
                         child: ListTile(
-                          trailing: Text("+ ${country.dialingCode}"),
+                          trailing: widget.showCurrency
+                              ? Text(
+                                  "${country.currency.code} (${country.currency.symbol})")
+                              : Text("+ ${country.dialingCode}"),
                           title: Row(
                             children: <Widget>[
                               Image.asset(

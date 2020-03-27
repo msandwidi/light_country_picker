@@ -33,13 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: Text('Flutter Country Picker Demo'),
       ),
-      body: new Center(
-        child: CountryPicker(
-          showDialingCode: true,
-         onChanged: (country){
-            debugPrint(country.toString());
-         },
-        ),
+      body:  Column(
+        children: [
+          CountryPicker(
+            showDialingCode: true,
+            onChanged: (country){
+              debugPrint(country.toString());
+            },
+          ),
+          CountryPicker(
+            showDialingCode: false,
+            showCurrencyISO: true,
+            onChanged: (country){
+              debugPrint(country.currency.symbol);
+            },
+          ),
+        ]
       ),
     );
   }
