@@ -112,7 +112,7 @@ class CountryPicker extends StatelessWidget {
               "${displayCountry.currency.code} (${displayCountry.currency.symbol})",
               style: currencyTextStyle,
             )),
-          if (showCurrencyISO)
+          if (showCurrencyISO && !showCurrency)
             Container(
                 child: Text(
               " ${displayCountry.currency.code}",
@@ -273,7 +273,7 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
                         child: ListTile(
                           trailing: widget.showCurrency
                               ? Text(
-                                  "${country.currency.code} (${country.currency.symbol})")
+                                  " ${country.currency.code} (${country.currency.symbol})")
                               : Text("+ ${country.dialingCode}"),
                           title: Row(
                             children: <Widget>[
