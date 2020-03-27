@@ -106,7 +106,7 @@ class CountryPicker extends StatelessWidget {
           if (showCurrency)
             Container(
                 child: Text(
-              " ${displayCountry.currency}",
+              " ${displayCountry.currency.symbol}",
               style: currencyTextStyle,
             )),
           if (showCurrencyISO)
