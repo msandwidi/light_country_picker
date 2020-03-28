@@ -9,5 +9,6 @@
 ## [0.0.9] - RELEASE
 ## [0.1.0] - RELEASE
 ## [0.1.1] - RELEASE
+## [0.1.2] - RELEASE
 
 * TODO: Describe initial release.

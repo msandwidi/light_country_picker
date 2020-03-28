@@ -32,8 +32,8 @@ Future<List<CountryEntity>> _fetchLocalizedCountryNames() async {
 
 /// The country picker widget exposes an dialog to select a country from a
 /// pre defined list, see [Country.ALL]
-class CountryPicker extends StatelessWidget {
-  const CountryPicker({
+class LightCountryPicker extends StatelessWidget {
+  const LightCountryPicker({
     Key key,
     this.selectedCountry,
     @required this.onChanged,
@@ -43,6 +43,7 @@ class CountryPicker extends StatelessWidget {
     this.showName = true,
     this.showCurrency = false,
     this.showCurrencyISO = false,
+    this.disabled = false,
     this.nameTextStyle,
     this.dialingCodeTextStyle,
     this.currencyTextStyle,
@@ -51,6 +52,7 @@ class CountryPicker extends StatelessWidget {
 
   final CountryEntity selectedCountry;
   final ValueChanged<CountryEntity> onChanged;
+  final bool disabled;
   final bool dense;
   final bool showFlag;
   final bool showDialingCode;
@@ -124,9 +126,11 @@ class CountryPicker extends StatelessWidget {
                   : Colors.white70),
         ],
       ),
-      onTap: () {
-        _selectCountry(context, displayCountry, showCurrency);
-      },
+      onTap: disabled
+          ? null
+          : () {
+              _selectCountry(context, displayCountry, showCurrency);
+            },
     );
   }
 
@@ -151,9 +155,11 @@ class CountryPicker extends StatelessWidget {
                   : Colors.white70),
         ],
       ),
-      onTap: () {
-        _selectCountry(context, displayCountry, showCurrency);
-      },
+      onTap: disabled
+          ? null
+          : () {
+              _selectCountry(context, displayCountry, showCurrency);
+            },
     );
   }
 
