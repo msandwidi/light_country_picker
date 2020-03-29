@@ -120,6 +120,7 @@ class LightCountryPicker extends StatelessWidget {
               " ${displayCountry.currency.code}",
               style: currencyISOTextStyle,
             )),
+          if(!disabled)
           Icon(Icons.arrow_drop_down,
               color: Theme.of(context).brightness == Brightness.light
                   ? Colors.grey.shade700
