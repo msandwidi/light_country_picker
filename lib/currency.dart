@@ -772,6 +772,16 @@ class Currency {
     namePlural: "Mauritian rupees",
   );
 
+  static const Currency MVR = Currency(
+    symbol: "Rf.",
+    name: "Maldivian Rufiyaa",
+    symbolNative: ".ރ",
+    decimalDigits: 2,
+    rounding: 0.0,
+    code: "MVR",
+    namePlural: "Maldivian Rufiyaa",
+  );
+
   static const Currency MXN = Currency(
     symbol: "MX\$",
     name: "Mexican Peso",
@@ -1228,15 +1238,5 @@ class Currency {
     rounding: 0.0,
     code: "ZWL",
     namePlural: "Zimbabwean Dollar",
-  );
-
-  static const Currency MVR = Currency(
-    symbol: "Rf.",
-    name: "Maldivian Rufiyaa",
-    symbolNative: ".ރ",
-    decimalDigits: 2,
-    rounding: 0.0,
-    code: "MVR",
-    namePlural: "Maldivian Rufiyaa",
   );
 }

@@ -1037,6 +1037,14 @@ class CountryEntity {
     currency: Currency.MUR,
   );
 
+  static const CountryEntity MV = CountryEntity(
+    asset: "assets/flags/mv_flag.png",
+    dialingCode: "960",
+    isoCode: "MV",
+    name: "Maldives",
+    currency: Currency.MVR,
+  );
+
   static const CountryEntity MX = CountryEntity(
     asset: "assets/flags/mx_flag.png",
     dialingCode: "52",
@@ -1629,14 +1637,6 @@ class CountryEntity {
     currency: Currency.USD,
   );
 
-  static const CountryEntity MV = CountryEntity(
-    asset: "assets/flags/mv_flag.png",
-    dialingCode: "960",
-    isoCode: "MV",
-    name: "Maldives",
-    currency: Currency.MVR,
-  );
-
   /// All the countries in the picker list
   static const ALL = <CountryEntity>[
     AD,
@@ -1763,6 +1763,7 @@ class CountryEntity {
     MR,
     MT,
     MU,
+    MV,
     MX,
     MY,
     MZ,

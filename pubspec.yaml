@@ -5,6 +5,7 @@ homepage: https://github.com/msandwidi
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
@@ -21,8 +22,10 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   plugin:
-    androidPackage: mamadou.s.lightcountrypicker
-    pluginClass: LightCountryPickerPlugin
+   platforms:
+      android:
+        package: mamadou.s.lightcountrypicker
+        pluginClass: LightCountryPickerPlugin
   assets:
     - assets/flags/
 

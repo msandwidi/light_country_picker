@@ -18,8 +18,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
@@ -33,23 +31,21 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: Text('Flutter Country Picker Demo'),
       ),
-      body:  Column(
-        children: [
-          CountryPicker(
-            showDialingCode: true,
-            onChanged: (country){
-              debugPrint(country.toString());
-            },
-          ),
-          CountryPicker(
-            showDialingCode: false,
-            showCurrencyISO: true,
-            onChanged: (country){
-              debugPrint(country.currency.symbol);
-            },
-          ),
-        ]
-      ),
+      body: Column(children: [
+        LightCountryPicker(
+          showDialingCode: true,
+          onChanged: (country) {
+            debugPrint(country.toString());
+          },
+        ),
+        LightCountryPicker(
+          showDialingCode: false,
+          showCurrencyISO: true,
+          onChanged: (country) {
+            debugPrint(country.currency.symbol);
+          },
+        ),
+      ]),
     );
   }
 }
