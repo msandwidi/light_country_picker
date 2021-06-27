@@ -1629,6 +1629,14 @@ class CountryEntity {
     currency: Currency.ZAR,
   );
 
+  static const CountryEntity ZM = CountryEntity(
+    asset: "assets/flags/zm_flag.png",
+    dialingCode: "27",
+    isoCode: "ZM",
+    name: "Zambia",
+    currency: Currency.ZMK,
+  );
+
   static const CountryEntity ZW = CountryEntity(
     asset: "assets/flags/zw_flag.png",
     dialingCode: "263",
@@ -1837,6 +1845,7 @@ class CountryEntity {
     YE,
     YT,
     ZA,
+    ZM,
     ZW,
   ];
 

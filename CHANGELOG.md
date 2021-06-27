@@ -13,4 +13,5 @@
 ## [0.1.3] - RELEASE
 ## [0.1.4] - RELEASE
 ## [0.1.5] - RELEASE
+## [0.1.6] - RELEASE
 
