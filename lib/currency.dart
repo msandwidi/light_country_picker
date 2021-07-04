@@ -523,7 +523,7 @@ class Currency {
   );
 
   static const Currency INR = Currency(
-    symbol: "Rs",
+    symbol: "₹",
     name: "Indian Rupee",
     symbolNative: "টকা",
     decimalDigits: 2,
