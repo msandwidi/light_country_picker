@@ -1224,7 +1224,7 @@ class Currency {
     symbol: "ZK",
     name: "Zambian Kwacha",
     symbolNative: "ZK",
-    decimalDigits: 0,
+    decimalDigits: 2,
     rounding: 0.0,
     code: "ZMK",
     namePlural: "Zambian kwachas",
