@@ -8,7 +8,7 @@ import 'package:light_country_picker/country_entity.dart';
 
 const _platform = const MethodChannel('mamadou.s/light_country_picker');
 Future<List<CountryEntity>> _fetchLocalizedCountryNames() async {
-  List<CountryEntity> renamed = new List();
+  List<CountryEntity> renamed = [];
   Map result;
   try {
     var isoCodes = <String>[];
@@ -120,11 +120,11 @@ class LightCountryPicker extends StatelessWidget {
               " ${displayCountry.currency.code}",
               style: currencyISOTextStyle,
             )),
-          if(!disabled)
-          Icon(Icons.arrow_drop_down,
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.grey.shade700
-                  : Colors.white70),
+          if (!disabled)
+            Icon(Icons.arrow_drop_down,
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colors.grey.shade700
+                    : Colors.white70),
         ],
       ),
       onTap: disabled
