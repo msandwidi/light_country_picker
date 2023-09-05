@@ -1191,9 +1191,9 @@ class Currency {
   );
 
   static const Currency XCD = Currency(
-    symbol: "$",
+    symbol: "\$",
     name: "Eastern Caribbean Dollar",
-    symbolNative: "$",
+    symbolNative: "\$",
     decimalDigits: 2,
     rounding: 0.0,
     code: "XCD",
