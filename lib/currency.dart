@@ -1190,6 +1190,16 @@ class Currency {
     namePlural: "CFA francs BEAC",
   );
 
+  static const Currency XCD = Currency(
+    symbol: "$",
+    name: "Eastern Caribbean Dollar",
+    symbolNative: "$",
+    decimalDigits: 2,
+    rounding: 0.0,
+    code: "XCD",
+    namePlural: "Eastern Caribbean Dollars"
+  );
+
   static const Currency XOF = Currency(
     symbol: "CFA",
     name: "CFA Franc BCEAO",
