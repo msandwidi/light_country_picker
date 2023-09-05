@@ -1605,14 +1605,6 @@ class CountryEntity {
     currency: Currency.VND,
   );
 
-  static const CountryEntity XCD = CountryEntity(
-    asset: "assets/flags/xcd_flag.png",
-    dialingCode: "1",
-    isoCode: "XCD",
-    name: "Eastern Caribbean",
-    currency: Currency.XCD,
-  );
-
   static const CountryEntity YE = CountryEntity(
     asset: "assets/flags/ye_flag.png",
     dialingCode: "967",
@@ -1850,7 +1842,6 @@ class CountryEntity {
     VG,
     VI,
     VN,
-    XCD,
     YE,
     YT,
     ZA,
